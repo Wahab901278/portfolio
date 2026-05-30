@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abdul Wahab — AI / ML Engineer</title>
+<meta name="description" content="Abdul Wahab — full-stack AI/ML engineer and data engineer building production-grade machine learning, agentic systems and cost-optimized data pipelines." />
+<meta name="author" content="Abdul Wahab" />
+<meta property="og:title" content="Abdul Wahab — AI / ML Engineer" />
+<meta property="og:description" content="Full-stack AI/ML engineer. LLM fine-tuning, RAG, agentic AI and cloud data systems." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Abdul Wahab","jobTitle":"AI / ML Engineer","address":{"@type":"PostalAddress","addressLocality":"Pécs","addressCountry":"Hungary"},"email":"abdulwahab901278@gmail.com","sameAs":["https://www.linkedin.com/in/abdul-wahab","https://github.com/Wahab901278"]}
+</script>
+</head>
+<body>
+<div id="progress"></div>
+<div class="gridlines" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Abdul Wahab home">
+      <span class="mono">AW</span>
+      <span>Abdul Wahab<small>AI / ML Engineer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#building">Building</a>
+      <a href="#skills">Skills</a>
+      <a href="#path">Path</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary nav-cta" href="#contact">Get in touch</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer">
+  <button class="close" id="drawer-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="#about">About</a>
+  <a href="#work">Work</a>
+  <a href="#building">Building</a>
+  <a href="#skills">Skills</a>
+  <a href="#path">Path</a>
+  <a href="#contact">Contact</a>
+  <div class="drawer-actions">
+    <a class="btn btn-primary" href="#contact">Get in touch</a>
+    <a class="btn btn-ghost" href="resume/abdul-wahab-resume-atomcamp.pdf">Resume</a>
+  </div>
+</div>
+
+<main class="page" id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <canvas id="neural" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner">
+      <div class="hero-content">
+        <span class="eyebrow">AI / ML &middot; Data Engineering &middot; Pécs, HU</span>
+        <h1>
+          <span class="line"><span>AI-powered solutions</span></span>
+          <span class="line"><span class="grad">for complex problems.</span></span>
+        </h1>
+        <p class="lead">I'm Abdul Wahab — a full-stack AI/ML engineer who turns research-grade ideas into production systems: fine-tuned LLMs, agentic workflows and cloud data pipelines that actually ship.</p>
+        <div class="hero-roles">
+          <span class="role-tag"><span class="dot"></span>AI / ML Engineering</span>
+          <span class="role-tag"><span class="dot"></span>Data Engineering</span>
+          <span class="role-tag"><span class="dot"></span>Cloud / AWS</span>
+          <span class="role-tag"><span class="dot"></span>Full-Stack</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#work">
+            View my work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="resume/abdul-wahab-resume-atomcamp.pdf">Download resume
+</a>
+          <a class="btn btn-ghost" href="#contact">Contact me</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint"><span>Scroll</span><span class="bar"></span></div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">About</span>
+        <h2>A perpetual learner, building at the edge of AI.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-bio reveal">
+          <p>I build AI systems end to end — from distributed data pipelines and model fine-tuning to the React front ends people actually touch. I'm happiest in the gap between a research paper and a shipped product.</p>
+          <p>Right now I'm a Data Engineer at BisViews, building cost-optimized, multilayered ingestion pipelines and the validation systems that keep data trustworthy at scale, while building two AI products on the side. I treat every project as a chance to learn something I didn't know last month.</p>
+          <div class="now">
+            <span class="pulse"></span>
+            <span><b>Currently</b> — Data Engineer @ BisViews, Pécs, Hungary</span>
+          </div>
+        </div>
+        <div class="expertise">
+          <div class="exp-card reveal d1">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+            <h4>AI / Machine Learning</h4>
+            <p>LLM fine-tuning, RAG, agentic systems, computer vision and classical ML.</p>
+          </div>
+          <div class="exp-card reveal d2">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+            <h4>Data Engineering</h4>
+            <p>Large-scale processing, distributed Spark jobs and automated quality pipelines.</p>
+          </div>
+          <div class="exp-card reveal d3">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6 19z"/></div>
+            <h4>Cloud &amp; DevOps</h4>
+            <p>AWS (EC2, EMR, S3), Docker, Kubernetes and CI/CD with Jenkins.</p>
+          </div>
+          <div class="exp-card reveal d4">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 9l-2 2 2 2M13 9l2 2-2 2M3 21h18"/></svg></div>
+            <h4>Full-Stack</h4>
+            <p>React &amp; TypeScript front ends on FastAPI, Flask and Django backends.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats reveal">
+        <div class="stat"><div class="num"><span data-count="10000">0</span><span class="suf">+</span></div><div class="lbl">Images processed</div></div>
+        <div class="stat"><div class="num"><span data-count="50000">0</span><span class="suf">+</span></div><div class="lbl">Records processed</div></div>
+        <div class="stat"><div class="num"><span data-count="10">0</span><span class="suf">+</span></div><div class="lbl">European countries</div></div>
+        <div class="stat"><div class="num"><span data-count="6">0</span></div><div class="lbl">Shipped AI projects</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Featured Work</span>
+        <h2>Six systems I designed, built and shipped.</h2>
+        <p>From distributed ML on AWS to LLM agents and data pipelines at scale. Open any case study for the full breakdown.</p>
+      </div>
+      <div class="proj-grid" id="proj-grid"><!-- rendered by projects-data.js --></div>
+    </div>
+  </section>
+
+  <!-- ============ BUILDING NOW ============ -->
+  <section id="building" class="pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Building Now</span>
+        <h2>Two AI products in active development.</h2>
+        <p>Side projects where I get to chase ideas end to end — product, agents and infrastructure.</p>
+      </div>
+      <div class="startups">
+        <div class="startup reveal d1">
+          <span class="status"><span class="live"></span>In development</span>
+          <h3>OutreachRocket</h3>
+          <p>An AI-powered cold-email platform that personalises and scales outreach campaigns — drafting, sequencing and adapting messaging per recipient with LLMs in the loop.</p>
+          <div class="tech-row">
+            <span class="tech">LLM integration</span><span class="tech">Email automation</span><span class="tech">Personalisation</span>
+          </div>
+        </div>
+        <div class="startup reveal d2">
+          <span class="status"><span class="live"></span>Active development</span>
+          <h3>DashpilotAI</h3>
+          <p>Natural-language Power BI report generation. A chat interface routes to specialised sub-agents — each owning a slice of the data-analysis and visualisation workflow — to build dashboards from a sentence.</p>
+          <div class="tech-row">
+            <span class="tech">LangGraph</span><span class="tech">Multi-agent</span><span class="tech">Power BI API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Toolkit</span>
+        <h2>The stack I reach for.</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group reveal d1">
+          <h4><span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/></svg></span>Languages</h4>
+          <div class="skill-list">
+            <div class="skill-row"><div class="top"><span class="name">Python</span><span class="lvl">Expert</span></div><div class="bar"><i data-lvl="95"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">SQL · PostgreSQL</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="88"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">JavaScript / TypeScript</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="82"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">C++</span><span class="lvl">Proficient</span></div><div class="bar"><i data-lvl="72"></i></div></div>
+          </div>
+        </div>
+        <div class="skill-group reveal d2">
+          <h4><span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 0 1 10 10M12 22A10 10 0 0 1 2 12"/></svg></span>ML &amp; Data</h4>
+          <div class="skill-list">
+            <div class="skill-row"><div class="top"><span class="name">TensorFlow / PyTorch</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="88"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">Scikit-learn · pandas · NumPy</span><span class="lvl">Expert</span></div><div class="bar"><i data-lvl="92"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">PySpark</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="85"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">Matplotlib · Seaborn</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="84"></i></div></div>
+          </div>
+        </div>
+        <div class="skill-group reveal d3">
+          <h4><span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>Frameworks</h4>
+          <div class="skill-list">
+            <div class="skill-row"><div class="top"><span class="name">React</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="86"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">FastAPI · Flask · Django</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="85"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">LangGraph</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="83"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">WNTR / EPANET</span><span class="lvl">Proficient</span></div><div class="bar"><i data-lvl="76"></i></div></div>
+          </div>
+        </div>
+        <div class="skill-group reveal d4">
+          <h4><span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6 19z"/></svg></span>Tools &amp; Cloud</h4>
+          <div class="skill-list">
+            <div class="skill-row"><div class="top"><span class="name">AWS · EC2 · EMR · S3</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="85"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">Docker · Kubernetes</span><span class="lvl">Advanced</span></div><div class="bar"><i data-lvl="80"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">Git</span><span class="lvl">Expert</span></div><div class="bar"><i data-lvl="92"></i></div></div>
+            <div class="skill-row"><div class="top"><span class="name">Jenkins · CI/CD</span><span class="lvl">Proficient</span></div><div class="bar"><i data-lvl="74"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PATH / TIMELINE ============ -->
+  <section id="path" class="pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The Path</span>
+        <h2>Experience &amp; education.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-when">Feb 2026 — Present<span class="badge">Current</span></div>
+          <div class="tl-main">
+            <span class="tl-dot"></span>
+            <h3>Data Engineer</h3>
+            <div class="org">BisViews · Pécs, Hungary</div>
+            <ul>
+              <li>Built multilayered ingestion that drains <b>free sources</b> (Nominatim, open data) before falling back to paid APIs like Google Places — minimising cost per record.</li>
+              <li>Engineered data-quality validation pipelines that catch and correct issues automatically, keeping records trustworthy at scale.</li>
+              <li>Processed <b>50,000+</b> records across <b>10+ European countries</b> since February 2026.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-item reveal d1">
+          <div class="tl-when">2025 — 2028 (expected)Education</div>
+          <div class="tl-main">
+            <span class="tl-dot"></span>
+            <h3>BS, Computer Science</h3>
+            <div class="org">University of Pécs · Hungary</div>
+            <ul>
+              <li>Coursework across algorithms, distributed systems, machine learning and software engineering.</li>
+              <li>Self-directed focus on applied AI — LLM fine-tuning, agentic systems and cloud deployment.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="pad contact">
+    <div class="wrap contact-inner">
+      <div class="reveal">
+        <span class="eyebrow" style="justify-content:center;">Contact</span>
+        <h2>Ready to build AI solutions together?</h2>
+        <p class="sub">I'm always up for hard problems in AI, ML and data engineering. If you're building something interesting, let's talk.</p>
+      </div>
+      <div class="contact-actions reveal d1">
+        <a class="btn btn-primary" href="mailto:abdulwahab901278@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          Send email
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/abdul-wahab" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/Wahab901278" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="resume/abdul-wahab-resume-atomcamp.pdf">Resume
+</a>
+      </div>
+      <div class="contact-grid reveal d2">
+        <a class="contact-card" href="mailto:abdulwahab901278@gmail.com">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <span><span class="cl">Email</span><span class="cv">abdulwahab901278@gmail.com</span></span>
+        </a>
+        <a class="contact-card" href="tel:+36204207147">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span><span class="cl">Phone</span><span class="cv">+36 20 420 7147</span></span>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/abdul-wahab" target="_blank" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.3 18V10.3H5.8V18zM7 9.2a1.45 1.45 0 1 0 0-2.9 1.45 1.45 0 0 0 0 2.9zM18.2 18v-4.2c0-2.2-1.2-3.3-2.8-3.3a2.4 2.4 0 0 0-2.2 1.2V10.3h-2.5V18h2.5v-4c0-1 .2-2 1.5-2s1.3 1.2 1.3 2.1V18z"/></svg></span>
+          <span><span class="cl">LinkedIn</span><span class="cv">in/abdul-wahab-10117a24a/
+</span></span>
+        </a>
+        <a class="contact-card" href="https://github.com/Wahab901278" target="_blank" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.3-1.1.6-1.4-2.2-.300-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.4 4.6-4.6 4.9.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></span>
+          <span><span class="cl">GitHub</span><span class="cv">/Wahab901278</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <a class="brand" href="#top" aria-label="Abdul Wahab home">
+          <span class="mono">AW</span>
+          <span>Abdul Wahab<small>AI / ML Engineer · Pécs, HU</small></span>
+        </a>
+        <nav class="foot-nav" aria-label="Footer">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#building">Building</a>
+          <a href="#skills">Skills</a>
+          <a href="#path">Path</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <small>
+</small>
+        <div class="foot-social" style="justify-content: flex-start; flex-direction: row; align-items: stretch">
+          <a href="mailto:abdulwahab901278@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+          <a href="https://www.linkedin.com/in/abdul-wahab" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.3 18V10.3H5.8V18zM7 9.2a1.45 1.45 0 1 0 0-2.9 1.45 1.45 0 0 0 0 2.9zM18.2 18v-4.2c0-2.2-1.2-3.3-2.8-3.3a2.4 2.4 0 0 0-2.2 1.2V10.3h-2.5V18h2.5v-4c0-1 .2-2 1.5-2s1.3 1.2 1.3 2.1V18z"/></svg></a>
+          <a href="https://github.com/Wahab901278" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.4 4.6-4.6 4.9.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- Project modal -->
+<div class="modal-scrim" id="modal-scrim" role="dialog" aria-modal="true" aria-label="Project details">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<script src="projects-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
