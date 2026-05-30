@@ -1,11 +1,3 @@
 {
-  "buildCommand": "echo 'Static site - no build needed'",
-  "outputDirectory": ".",
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
-  ]
+  "version": 2
 }
