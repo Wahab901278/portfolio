@@ -6,14 +6,17 @@
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-  /* ---------- Theme ---------- */
+  /* ---------- Theme (pixel default, cycles pixel → dark → light) ---------- */
   const root = document.documentElement;
+  const THEMES = ["pixel", "dark", "light"];
   const stored = localStorage.getItem("aw-theme");
-  if (stored) root.setAttribute("data-theme", stored);
+  if (stored && THEMES.includes(stored)) root.setAttribute("data-theme", stored);
   $$("[data-theme-toggle]").forEach((btn) =>
     btn.addEventListener("click", () => {
-      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      const cur = root.getAttribute("data-theme") || "pixel";
+      const next = THEMES[(THEMES.indexOf(cur) + 1) % THEMES.length];
       root.setAttribute("data-theme", next);
       localStorage.setItem("aw-theme", next);
       window.dispatchEvent(new Event("themechange"));
@@ -246,6 +249,102 @@
       const [r, g, b] = rgb;
       for (const a of nodes) { ctx.fillStyle = `rgba(${r},${g},${b},0.6)`; ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill(); }
     }
+  }
+
+  /* ---------- Hero ⇄ About collision + shrink ---------- */
+  (function heroCollision() {
+    const heroAbout = $(".hero-about");
+    const hero = $(".hero");
+    const about = $("#about");
+    if (!heroAbout || !hero || !about || prefersReduced) return;
+    function update() {
+      const hH = hero.offsetHeight || window.innerHeight;
+      const q = clamp(window.scrollY / hH, 0, 1);
+      hero.style.setProperty("--q", q.toFixed(4));
+      const top = about.getBoundingClientRect().top;
+      const aq = clamp(1 - top / window.innerHeight, 0, 1);
+      about.style.setProperty("--aq", aq.toFixed(4));
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  })();
+
+  /* ---------- Pinned horizontal sections (Work + Toolkit) ---------- */
+  function fillBars(card) {
+    $$(".bar > i[data-lvl]", card).forEach((b) => { b.style.width = b.dataset.lvl + "%"; });
+  }
+  function initPin(outer, dots, count) {
+    const track = $(".pin-track", outer);
+    if (!track) return;
+    const cards = [...track.children];
+    if (!cards.length) return;
+    const n = cards.length;
+    const pad2 = (v) => (v < 10 ? "0" + v : "" + v);
+
+    cards.forEach((c) => c.classList.remove("reveal", "d1", "d2", "d3", "d4", "d5"));
+    if (dots) dots.innerHTML = cards.map(() => "<i></i>").join("");
+    const dotEls = dots ? [...dots.children] : [];
+
+    outer.classList.add("is-pinned");
+    const setHeight = () => { outer.style.height = n * 100 + "vh"; };
+    setHeight();
+
+    let active = -1;
+    function update() {
+      const vh = window.innerHeight;
+      const span = outer.offsetHeight - vh;
+      const top = outer.getBoundingClientRect().top;
+      const p = span > 0 ? clamp(-top / span, 0, 1) : 0;
+      const f = p * (n - 1);
+      const W = window.innerWidth;
+      for (let i = 0; i < n; i++) {
+        const c = cards[i];
+        const o = f - i; // <0 = waiting in the deck, ~0 = active, >0 = being dealt away
+        let x, y, rot, scale, op, z;
+        if (o <= 0) {
+          // upcoming cards rest in a shallow depth-stack behind the active one
+          const d = Math.min(-o, 3);
+          x = d * 10;
+          y = d * 24;
+          rot = 0;
+          scale = 1 - d * 0.05;
+          op = clamp(1 + o * 0.4, 0, 1);
+          z = Math.round(100 - d);
+        } else {
+          // current card is dealt off to the right with a slight spin
+          const pr = Math.min(o, 1);
+          x = pr * (W * 0.9 + 120);
+          y = -pr * 60;
+          rot = pr * 9;
+          scale = 1 - pr * 0.06;
+          op = clamp(1 - pr * 1.3, 0, 1);
+          z = 200;
+        }
+        c.style.transform =
+          "translate(calc(-50% + " + x.toFixed(1) + "px), calc(-50% + " + y.toFixed(1) +
+          "px)) rotate(" + rot.toFixed(2) + "deg) scale(" + scale.toFixed(4) + ")";
+        c.style.opacity = op.toFixed(3);
+        c.style.zIndex = String(z);
+        c.style.pointerEvents = (o > -0.5 && o < 0.5) ? "auto" : "none";
+      }
+      const cur = clamp(Math.round(f), 0, n - 1);
+      if (cur !== active) {
+        active = cur;
+        dotEls.forEach((d, i) => d.classList.toggle("on", i === cur));
+        if (count) count.innerHTML = "<b>" + pad2(cur + 1) + "</b> / " + pad2(n);
+        if (cards[cur]) fillBars(cards[cur]);
+      }
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", () => { setHeight(); update(); });
+    update();
+  }
+  if (!prefersReduced) {
+    const wp = $('[data-pin="work"]');
+    const sp = $('[data-pin="skills"]');
+    if (wp) initPin(wp, $("#work-dots"), $("#work-count"));
+    if (sp) initPin(sp, $("#skills-dots"), $("#skills-count"));
   }
 
   /* ---------- Year ---------- */

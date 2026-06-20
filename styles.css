@@ -43,6 +43,34 @@
   color-scheme: dark;
 }
 
+/* Pixel (DEFAULT) — maroon + warm coral on parchment, pixel-art */
+[data-theme="pixel"] {
+  --bg: #F7EEDC;
+  --bg-2: #FCF6E8;
+  --surface: #FFFCF4;
+  --surface-2: #F1E6CF;
+  --border: rgba(120, 1, 21, 0.18);
+  --border-strong: rgba(120, 1, 21, 0.32);
+  --text: #2B0A0E;
+  --text-dim: #6F4A40;
+  --text-faint: #A08374;
+  --accent: #780115;
+  --accent-soft: rgba(120, 1, 21, 0.10);
+  --accent-line: rgba(120, 1, 21, 0.30);
+  --accent-glow: rgba(120, 1, 21, 0.35);
+  --accent-2: #F78B63;
+  --grid-line: rgba(120, 1, 21, 0.06);
+  --shadow: 6px 6px 0 rgba(120, 1, 21, 0.16);
+  /* pixel-art typography + sharp corners */
+  --ff-head: "Pixelify Sans", "Space Grotesk", system-ui, sans-serif;
+  --radius-sm: 2px;
+  --radius: 3px;
+  --radius-lg: 4px;
+  --shadow-accent: 4px 4px 0 #4A000D;
+  --shadow-accent-hover: 6px 6px 0 #4A000D;
+  color-scheme: light;
+}
+
 /* Light */
 [data-theme="light"] {
   --bg: #F6F7F9;
@@ -492,4 +520,188 @@ footer { border-top: 1px solid var(--border); padding-block: 56px; }
   .modal-metrics { grid-template-columns: 1fr; }
   .metrics { gap: 16px; }
   .foot-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ============================================================
+   PIXEL THEME — element-level overrides (pixel-art finish)
+   ============================================================ */
+.icon-pixel { display: none; }
+[data-theme="pixel"] .icon-pixel { display: block; }
+[data-theme="pixel"] .icon-sun,
+[data-theme="pixel"] .icon-moon { display: none; }
+
+/* Square the rounded vocabulary (pills, chips, tiles) */
+[data-theme="pixel"] .btn,
+[data-theme="pixel"] .role-tag,
+[data-theme="pixel"] .startup .status,
+[data-theme="pixel"] .tech,
+[data-theme="pixel"] .bar,
+[data-theme="pixel"] .bar > i,
+[data-theme="pixel"] .brand .mono,
+[data-theme="pixel"] .theme-toggle,
+[data-theme="pixel"] .hamburger,
+[data-theme="pixel"] .nav-links a,
+[data-theme="pixel"] .exp-card .ico,
+[data-theme="pixel"] .skill-group h4 .gi,
+[data-theme="pixel"] .contact-card .ci,
+[data-theme="pixel"] .tl-when .badge,
+[data-theme="pixel"] .foot-social a,
+[data-theme="pixel"] .skill-row .lvl,
+[data-theme="pixel"] .pin-dots i { border-radius: var(--radius-sm) !important; }
+
+/* Pixel display type wants no negative tracking + a touch more leading */
+[data-theme="pixel"] h1,
+[data-theme="pixel"] h2,
+[data-theme="pixel"] h3,
+[data-theme="pixel"] h4,
+[data-theme="pixel"] .brand,
+[data-theme="pixel"] .drawer a { letter-spacing: 0; line-height: 1.12; }
+[data-theme="pixel"] .hero h1 { letter-spacing: 0; line-height: 1.05; }
+
+/* Hard offset shadows instead of soft glows */
+[data-theme="pixel"] .btn-primary {
+  border-color: #4A000D;
+  box-shadow: var(--shadow-accent);
+  color: #fff;
+}
+[data-theme="pixel"] .btn-primary:hover {
+  box-shadow: var(--shadow-accent-hover);
+  transform: translate(-2px, -2px);
+  filter: none;
+}
+[data-theme="pixel"] .role-tag .dot,
+[data-theme="pixel"] .tl-dot { box-shadow: none; }
+[data-theme="pixel"] .pin-dots i.on { box-shadow: 2px 2px 0 #4A000D; }
+
+/* Make data / numerals unmistakable on parchment (pixel arcade-score look) */
+[data-theme="pixel"] .stat .num,
+[data-theme="pixel"] .metric .mv,
+[data-theme="pixel"] .modal-metrics .mv {
+  color: var(--accent);
+  font-weight: 700;
+  text-shadow: 2px 2px 0 var(--accent-2);
+}
+[data-theme="pixel"] .stat .num .suf,
+[data-theme="pixel"] .metric .mv .suf,
+[data-theme="pixel"] .modal-metrics .mv .suf {
+  color: var(--text);
+  text-shadow: none;
+}
+[data-theme="pixel"] .stat .num { font-size: clamp(2.3rem, 4.4vw, 3.1rem); }
+[data-theme="pixel"] .stat { background: var(--surface); }
+[data-theme="pixel"] .metric .mv { font-size: 1.4rem; }
+[data-theme="pixel"] .metric .ml,
+[data-theme="pixel"] .stat .lbl { color: var(--text-dim); }
+
+/* ============================================================
+   HERO ⇄ ABOUT — collision + shrink transition
+   The hero is pinned and shrinks while the opaque About panel
+   rises over it (the "collision") and grows from shrunk → full.
+   ============================================================ */
+.hero-about { position: relative; z-index: 1; }
+.hero-about .hero { position: sticky; top: 0; z-index: 1; }
+.hero-about .hero-inner {
+  transform: scale(calc(1 - 0.14 * var(--q, 0)));
+  opacity: calc(1 - 0.85 * var(--q, 0));
+  transform-origin: 50% 38%;
+  will-change: transform, opacity;
+}
+#about {
+  position: relative;
+  z-index: 2;
+  background: var(--bg);
+}
+#about > .wrap {
+  transform: scale(calc(0.9 + 0.1 * var(--aq, 1)));
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-about .hero { position: static; }
+  .hero-about .hero-inner { transform: none; opacity: 1; }
+  #about > .wrap { transform: none; }
+}
+
+/* ============================================================
+   PINNED HORIZONTAL SECTIONS (Work + Toolkit)
+   Base = simple stacked grid (no JS / reduced motion / mobile).
+   JS adds .is-pinned to enable the scroll-driven filmstrip.
+   ============================================================ */
+.pin-track {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.pin-rail { display: none; }
+
+.pin-outer.is-pinned { position: relative; }
+.pin-outer.is-pinned .pin-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+.pin-outer.is-pinned .pin-track {
+  display: block;
+  position: absolute;
+  inset: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.pin-outer.is-pinned .pin-track > .proj-card,
+.pin-outer.is-pinned .pin-track > .skill-group {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(840px, 90vw);
+  max-height: 82svh;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--shadow);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+.pin-outer.is-pinned .pin-track > .skill-group { width: min(680px, 90vw); }
+.pin-outer.is-pinned .proj-viz { aspect-ratio: 16 / 6.4; }
+
+.pin-outer.is-pinned .pin-rail {
+  position: absolute;
+  left: 0; right: 0; bottom: clamp(18px, 4vh, 34px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 8;
+  pointer-events: none;
+}
+.pin-count {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+}
+.pin-count b { color: var(--accent); font-weight: 700; }
+.pin-dots { display: flex; gap: 11px; }
+.pin-dots i {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.pin-dots i.on {
+  background: var(--accent);
+  transform: scale(1.35);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+@media (max-width: 760px) {
+  .pin-outer.is-pinned .pin-track > .proj-card { width: 92vw; max-height: 86svh; }
+  .pin-outer.is-pinned .pin-track > .skill-group { width: 92vw; }
+  .pin-outer.is-pinned .proj-viz { aspect-ratio: 16 / 9; }
+  .pin-outer.is-pinned .proj-body { padding: 18px; }
+  .pin-outer.is-pinned .skill-group { padding: 22px; }
 }

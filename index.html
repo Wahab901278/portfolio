@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="pixel">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,10 +11,10 @@
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1" />
 <link rel="apple-touch-icon" href="favicon.svg?v=1" />
-<meta name="theme-color" content="#4F8CFF" />
+<meta name="theme-color" content="#780115" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Abdul Wahab","jobTitle":"AI / ML Engineer","address":{"@type":"PostalAddress","addressLocality":"Pécs","addressCountry":"Hungary"},"email":"abdulwahab901278@gmail.com","sameAs":["https://www.linkedin.com/in/abdul-wahab-10117a24a/","https://github.com/Wahab901278"]}
@@ -39,7 +39,8 @@
       <a href="#path">Path</a>
     </nav>
     <div class="nav-right">
-      <button class="theme-toggle" data-theme-toggle aria-label="Toggle colour theme">
+      <button class="theme-toggle" data-theme-toggle aria-label="Cycle colour theme">
+        <svg class="icon-pixel" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zM10 4h4v4h-4zM16 4h4v4h-4zM4 10h4v4H4zM16 10h4v4h-4zM4 16h4v4H4zM10 16h4v4h-4zM16 16h4v4h-4z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
@@ -70,6 +71,8 @@
 
 <main class="page" id="top">
 
+  <!-- ============ HERO + ABOUT (collision transition) ============ -->
+  <div class="hero-about">
   <!-- ============ HERO ============ -->
   <section class="hero">
     <canvas id="neural" aria-hidden="true"></canvas>
@@ -150,15 +153,22 @@
     </div>
   </section>
 
+  </div><!-- /.hero-about -->
+
   <!-- ============ WORK ============ -->
-  <section id="work" class="pad">
+  <section id="work" class="pad pin-section">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Featured Work</span>
         <h2>Six systems I designed, built and shipped.</h2>
-        <p>From distributed ML on AWS to LLM agents and data pipelines at scale. Open any case study for the full breakdown.</p>
+        <p>From distributed ML on AWS to LLM agents and data pipelines at scale. Scroll to move through each case study — open any for the full breakdown.</p>
       </div>
-      <div class="proj-grid" id="proj-grid"><!-- rendered by projects-data.js --></div>
+    </div>
+    <div class="pin-outer" data-pin="work">
+      <div class="pin-sticky">
+        <div class="pin-track proj-grid" id="proj-grid"><!-- rendered by projects-data.js --></div>
+        <div class="pin-rail"><span class="pin-count" id="work-count" aria-hidden="true"></span><div class="pin-dots" id="work-dots" aria-hidden="true"></div></div>
+      </div>
     </div>
   </section>
 
@@ -192,13 +202,17 @@
   </section>
 
   <!-- ============ SKILLS ============ -->
-  <section id="skills" class="pad">
+  <section id="skills" class="pad pin-section">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Toolkit</span>
         <h2>The stack I reach for.</h2>
+        <p>Scroll to glide across the toolkit — one group slides through at a time.</p>
       </div>
-      <div class="skills-grid">
+    </div>
+    <div class="pin-outer" data-pin="skills">
+      <div class="pin-sticky">
+        <div class="pin-track skills-grid" id="skills-track">
         <div class="skill-group reveal d1">
           <h4><span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/></svg></span>Languages</h4>
           <div class="skill-list">
@@ -235,8 +249,10 @@
             <div class="skill-row"><div class="top"><span class="name">Jenkins · CI/CD</span><span class="lvl">Proficient</span></div><div class="bar"><i data-lvl="74"></i></div></div>
           </div>
         </div>
-      </div>
-    </div>
+        </div><!-- /.pin-track -->
+        <div class="pin-rail"><span class="pin-count" id="skills-count" aria-hidden="true"></span><div class="pin-dots" id="skills-dots" aria-hidden="true"></div></div>
+      </div><!-- /.pin-sticky -->
+    </div><!-- /.pin-outer -->
   </section>
 
   <!-- ============ PATH / TIMELINE ============ -->
